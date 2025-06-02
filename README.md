@@ -70,6 +70,5 @@ logs/                # Archivos de log
 - Los archivos de configuración de claves primarias están en `src/main/resources/pk.properties`.
 - Los logs de la aplicación se guardan en la carpeta `logs/`.
 - Si quieres agregar nuevos archivos XML, colócalos en la carpeta `archivosXML/` antes de ejecutar la aplicación.
-- Las tablas en la base de datos no tienen restricciones -claves foráneas-. La mala organización de los datos originales complica 
-- su implementación.
+- Las tablas en la base de datos no tienen restricciones -claves foráneas-. La mala organización de los datos originales complica su implementación.
 - Por el mismo motivo claves primarias debieron implementarse forzosamente en forma compuesta. 
