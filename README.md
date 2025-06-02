@@ -1,6 +1,6 @@
 # Importador XML a PostgreSQL
-
-Este proyecto es una aplicación hecha en Java que importa datos desde archivos XML y los carga en una base de datos PostgreSQL. Crea laslas tablas necesarias según  la estructura de los archivos.
+Proyecto para la materia Desarrollo de Software de UTN - San Rafael.
+Se trata de una pequeña aplicación hecha en Java que importa datos desde archivos XML y los carga en una base de datos PostgreSQL, automáticamente, creando las tablas necesarias según la estructura de los archivos.
 
 ## Descripción
 
@@ -20,7 +20,7 @@ Este proyecto es una aplicación hecha en Java que importa datos desde archivos 
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone <URL_DEL_REPOSITORIO>
+   git clone https://github.com/litomi/DS_cargaXML.git
    cd DS_cargaXML
    ```
 
@@ -43,7 +43,7 @@ Este proyecto es una aplicación hecha en Java que importa datos desde archivos 
 
 ## Ejecución
 
-1. Asegúrate de que el servidor de PostgreSQL esté corriendo.
+1. El servidor de PostgreSQL debe estar en ejecución.
 2. Ejecuta la aplicación:
    ```bash
    mvn exec:java -Dexec.mainClass="com.app.App"
@@ -70,3 +70,6 @@ logs/                # Archivos de log
 - Los archivos de configuración de claves primarias están en `src/main/resources/pk.properties`.
 - Los logs de la aplicación se guardan en la carpeta `logs/`.
 - Si quieres agregar nuevos archivos XML, colócalos en la carpeta `archivosXML/` antes de ejecutar la aplicación.
+- Las tablas en la base de datos no tienen restricciones -claves foráneas-. La mala organización de los datos originales complica 
+- su implementación.
+- Por el mismo motivo claves primarias debieron implementarse forzosamente en forma compuesta. 
