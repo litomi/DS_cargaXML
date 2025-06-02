@@ -1,3 +1,3 @@
-com/app/ProcesadorXML.class
-App.class
-com/app/BDgestor.class
+com/app/App.class
+com/app/BDGestor.class
+com/app/XMLGestor.class

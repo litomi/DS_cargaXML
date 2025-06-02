@@ -3,7 +3,7 @@ package com.app;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,9 +12,10 @@ import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 
-class ProcesadorXML {
+class XMLGestor {
 
-    public ProcesadorXML() {}
+    public XMLGestor() {
+    }
 
     /**
      * Extrae los datos del archivo.
@@ -25,26 +26,32 @@ class ProcesadorXML {
      * @throws IOException
      */
 
-    public Map<String, String> extraerDatosArchivo(File archivoXML) {
+    public List<Map<String, String>> extraerDatosArchivo(File archivoXML) {
         SAXBuilder saxBuilder = new SAXBuilder();
-        Map<String, String> mapa = new HashMap<>();
+        List<Map<String, String>> filas = new ArrayList<>();
         try {
             Document documento = saxBuilder.build(archivoXML);
             Element elementoRaiz = documento.getRootElement();
 
-            for (Element e : elementoRaiz.getChildren()) {
-                for (Element e1 : e.getChildren()) {
-                    mapa.put(
-                            e1.getName().trim().toLowerCase(),
-                            e1.getValue().trim().toLowerCase());
+            for (Element fila : elementoRaiz.getChildren()) {
+
+                Map<String, String> datosFila = new LinkedHashMap<>();
+                for (Element columna : fila.getChildren()) {
+                    datosFila.put(
+                            columna.getName().trim().toLowerCase(),
+                            columna.getValue().trim());
+                }
+                if(!datosFila.isEmpty()){
+                    filas.add(datosFila);
                 }
             }
+            
+
         } catch (JDOMException | IOException e) {
             e.printStackTrace();
-            return null;
         }
 
-        return mapa;
+        return filas;
     }
 
     public List<String> extraerClaves(Map<String, String> mapa) {

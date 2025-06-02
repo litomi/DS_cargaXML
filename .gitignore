@@ -1,0 +1,22 @@
+# Maven
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Logs
+/logs/
+*.log
+
+# IDEs
+/.idea/
+*.iml
+/.vscode/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración locales (opcional)
+*.local
+
+/src/test/
+!.mvn/wrapper/maven-wrapper.jar
