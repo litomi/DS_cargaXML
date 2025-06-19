@@ -89,6 +89,6 @@ public class App {
     }
 
     private static void alTerminar() {
-        logger.info("-----------¡FIN DEL PROGRAMA!--------");
+        logger.info("-----------¡FIN DEL PROGRAMA!----------");
     }
 }

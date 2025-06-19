@@ -48,7 +48,7 @@ class XMLGestor {
             
 
         } catch (JDOMException | IOException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
         }
 
         return filas;

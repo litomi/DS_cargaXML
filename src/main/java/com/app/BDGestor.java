@@ -87,7 +87,7 @@ public class BDGestor {
             }
             System.err.println("Error al ejecutar CREATE TABLE para " + nombreTabla + ": " + e.getMessage());
             System.err.println("SQL intentado: " + sql);
-            System.exit(0);
+            
             
         } finally {
             try {
@@ -158,7 +158,7 @@ public class BDGestor {
             } catch (SQLException e1) {
                 e1.printStackTrace();
             }
-            System.exit(0);
+            
         } finally {
             try {
                 conex.setAutoCommit(true);
@@ -169,6 +169,15 @@ public class BDGestor {
         }
 
         return filasInsertadas;
+    }
+
+    void eliminarTabla(String nombreTabla){
+        String sql = String.format("DROP TABLE IF EXISTS %s CASCADE", nombreTabla);
+        try(Statement stmt = conex.createStatement()){
+            stmt.execute(sql);
+        }catch ( SQLException e){
+            System.out.println(e.getMessage());
+        }
     }
 
 }
